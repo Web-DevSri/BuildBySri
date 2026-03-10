@@ -157,11 +157,17 @@
                     light_mode
                 </span>
             </button>
-            <button class="md:hidden p-2 text-charcoal dark:text-white mr-16">
-                <span class="material-symbols-outlined">menu</span>
-            </button>
+        <button id="mobileMenuBtn" class="md:hidden p-2 text-charcoal dark:text-white mr-16 z-50 relative">
+            <span class="material-symbols-outlined">menu</span>
+        </button>
         </header>
-
+        <!-- Mobile Menu Overlay -->
+        <div id="mobileMenu" class="fixed inset-0 z-40 bg-off-white dark:bg-charcoal transform translate-x-full transition-transform duration-300 md:hidden flex flex-col items-center justify-center gap-8 pt-20">
+            <a class="text-2xl font-serif font-bold text-charcoal dark:text-white hover:text-primary dark:hover:text-primary transition-colors" href="#portfolio" onclick="toggleMobileMenu()">Work</a>
+            <a class="text-2xl font-serif font-bold text-charcoal dark:text-white hover:text-primary dark:hover:text-primary transition-colors" href="#experience" onclick="toggleMobileMenu()">Experience</a>
+            <a class="text-2xl font-serif font-bold text-charcoal dark:text-white hover:text-primary dark:hover:text-primary transition-colors" href="#skills" onclick="toggleMobileMenu()">Skills</a>
+            <a class="text-2xl font-serif font-bold text-charcoal dark:text-white hover:text-primary dark:hover:text-primary transition-colors" href="#contact" onclick="toggleMobileMenu()">Contact</a>
+        </div>
         <main class="relative h-screen w-full flex flex-col justify-center items-center p-6 z-10">
             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120vw] h-[120vw] md:w-[600px] md:h-[600px] pointer-events-none z-0">
                 <div class="w-full h-full animate-[spin_40s_linear_infinite] opacity-[0.06]">
@@ -344,7 +350,7 @@
                 </div>
                 <h2 class="font-grotesk text-5xl md:text-7xl lg:text-9xl font-bold leading-[0.85] tracking-tighter uppercase">
                     Work <br/>
-                    <span class="text-white/10 italic">History_</span>
+                    <span class="text-white/2 italic bg-[#176782]">History_</span>
                 </h2>
             </div>
 
@@ -407,7 +413,7 @@
                         <p class="text-primary font-grotesk font-medium uppercase tracking-widest text-sm">Education</p>
                     </div>
                     <h3 class="font-grotesk text-4xl md:text-6xl font-bold leading-[0.9] tracking-tighter">
-                        Academic <span class="text-white/10 italic">Background_</span>
+                        Academic <span class="text-white/2 bg-[#176782] italic">Background_</span>
                     </h3>
                 </div>
 
@@ -416,7 +422,7 @@
                     <div class="group bg-surface-dark border border-white/5 p-8 rounded-xl hover:border-primary/30 transition-all duration-300">
                         <div class="flex flex-col gap-4">
                             <div class="flex items-start justify-between">
-                                <span class="text-primary font-mono text-xs uppercase tracking-widest">In Progress</span>
+                                <span class="text-text-muted font-mono text-xs uppercase tracking-widest">Completed</span>
                                 <span class="font-mono text-2xl text-primary/40">2026</span>
                             </div>
                             <div>
@@ -426,7 +432,6 @@
                             <div class="border-t border-white/5 pt-4 mt-2">
                                 <p class="text-white/70 text-sm">Madras Institute Of Technology (CDE)</p>
                                 <p class="text-text-muted/60 text-xs mt-1">Chennai</p>
-                                <p class="text-text-muted/50 text-xs mt-2 font-mono">Expected: February 2026</p>
                             </div>
                         </div>
                     </div>
@@ -436,7 +441,7 @@
                         <div class="flex flex-col gap-4">
                             <div class="flex items-start justify-between">
                                 <span class="text-text-muted font-mono text-xs uppercase tracking-widest">Completed</span>
-                                <span class="font-mono text-2xl text-primary/40">—</span>
+                                <span class="font-mono text-2xl text-primary/40">2022</span>
                             </div>
                             <div>
                                 <h4 class="font-grotesk text-2xl font-bold mb-2">BCA</h4>
@@ -579,7 +584,7 @@
                                 <div class="flex items-center justify-between text-sm font-mono">
                                     <span class="flex items-center gap-3">
                                         <div class="skill-bullet size-1.5 rounded-full bg-charcoal/20 dark:bg-white/20 transition-all duration-300"></div>
-                                        Figma
+                                        Figma, Stitch, Framer
                                     </span>
                                     <span class="text-text-muted/50">92%</span>
                                 </div>
@@ -594,6 +599,18 @@
                                         UI/UX Design Principles
                                     </span>
                                     <span class="text-text-muted/50">88%</span>
+                                </div>
+                                <div class="h-[1px] w-full bg-charcoal/5 dark:bg-white/5 relative overflow-hidden">
+                                    <div class="absolute inset-0 bg-primary/40 w-[88%]"></div>
+                                </div>
+                            </li>
+                            <li class="skill-item group/item flex flex-col gap-2">
+                                <div class="flex items-center justify-between text-sm font-mono">
+                                    <span class="flex items-center gap-3">
+                                        <div class="skill-bullet size-1.5 rounded-full bg-charcoal/20 dark:bg-white/20 transition-all duration-300"></div>
+                                        Web Performance Optimization
+                                    </span>
+                                    <span class="text-text-muted/50">92%</span>
                                 </div>
                                 <div class="h-[1px] w-full bg-charcoal/5 dark:bg-white/5 relative overflow-hidden">
                                     <div class="absolute inset-0 bg-primary/40 w-[88%]"></div>
@@ -774,7 +791,7 @@
         </div>
     </footer>
 
-    <script>
+    <!-- <script>
         const themeToggle = document.getElementById('themeToggle');
         const html = document.documentElement;
         const icon = themeToggle.querySelector('.material-symbols-outlined');
@@ -800,6 +817,56 @@
                 icon.textContent = 'dark_mode';
             }
         });
-    </script>
+    </script> -->
+<script>
+// --- Theme Toggle Logic ---
+const themeToggle = document.getElementById('themeToggle');
+const html = document.documentElement;
+const icon = themeToggle.querySelector('.material-symbols-outlined');
+
+// Check for saved theme preference or default to light mode
+const currentTheme = localStorage.getItem('theme') || 'light';
+if (currentTheme === 'dark') {
+    html.classList.add('dark');
+    icon.textContent = 'dark_mode';
+} else {
+    html.classList.remove('dark');
+    icon.textContent = 'light_mode';
+}
+
+themeToggle.addEventListener('click', () => {
+    if (html.classList.contains('dark')) {
+        html.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+        icon.textContent = 'light_mode';
+    } else {
+        html.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+        icon.textContent = 'dark_mode';
+    }
+});
+
+// --- Mobile Menu Logic ---
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+const menuIcon = mobileMenuBtn.querySelector('.material-symbols-outlined');
+let isMenuOpen = false;
+
+function toggleMobileMenu() {
+    isMenuOpen = !isMenuOpen;
+    if (isMenuOpen) {
+        // Open Menu
+        mobileMenu.classList.remove('translate-x-full');
+        menuIcon.textContent = 'close';
+    } else {
+        // Close Menu
+        mobileMenu.classList.add('translate-x-full');
+        menuIcon.textContent = 'menu';
+    }
+}
+
+// Add event listener to the button
+mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+</script>
 </body>
 </html>
